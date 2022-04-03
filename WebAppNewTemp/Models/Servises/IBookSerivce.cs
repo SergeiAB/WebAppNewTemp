@@ -5,7 +5,7 @@
         IEnumerable<Book> GetAll();
         void Delete(int id);
         int Add(Book book);
-        //void Edit(int id, string newName);
+        void Edit(int id, string newName);
     }
 
 
@@ -17,6 +17,11 @@
         }
 
         public void Delete(int id)
+        {
+            throw new NotImplementedException("not impl");
+        }
+
+        public void Edit(int id, string newName)
         {
             throw new NotImplementedException("not impl");
         }
@@ -38,6 +43,11 @@
         public void Delete(int id)
         {
             Console.WriteLine(id);
+        }
+
+        public void Edit(int id, string newName)
+        {
+            throw new NotImplementedException("not impl");
         }
 
         public IEnumerable<Book> GetAll()
