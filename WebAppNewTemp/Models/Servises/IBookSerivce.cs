@@ -5,6 +5,7 @@
         IEnumerable<Book> GetAll();
         void Delete(int id);
         int Add(Book book);
+        //void Edit(int id, string newName);
     }
 
 
@@ -50,14 +51,25 @@
 
     public class MyBookSerivce : IBookSerivce
     {
-        private readonly List<Book> _books=new();
+        private static List<Book> _books;
         public List<Book> Books { get { return _books; } }
        
+        public MyBookSerivce()
+        {
+            _books=new List<Book>();
+        }
+
         public int Add(Book book)
         {
             book.Id = GetId();
             _books.Add(book);
             return book.Id;
+        }
+        public void Edit(int id, string newName)
+        {
+            var book = _books.Find(x => x.Id == id);
+            int index = _books.IndexOf(book);
+            _books[index].Name=newName;
         }
 
         public void Delete(int id)
